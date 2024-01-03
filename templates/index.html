@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title>CO2 Emission Predictor</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+ <div class="login">
+	<h2>Dự đoán hoa</h2>
+     <h3> Nhập các giá trị sau để dự đoán --> bấm "Dự đoán"</h3>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    <input type="text" name="sepal.length" placeholder="sepal.length" required="required" />
+    <input type="text" name="sepal.width" placeholder="sepal.width" required="required" />
+    <input type="text" name="petal.length" placeholder="petal.length" required="required" />
+    <input type="text" name="petal.width" placeholder="petal.width" required="required" />
+    <button type="submit" class="btn">Dự đoán</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
